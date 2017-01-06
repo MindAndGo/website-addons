@@ -17,7 +17,12 @@
     <xpath expr="//t[@t-as='line']/tr" position="inside">
         <td  class="text-right" name="virtual_available">
             <t t-esc="line.product_id.virtual_available"/>
+            
         </td>
+        <td style="display: none" name="product_type">
+            <t t-raw="line.product_id.type"/>
+        </td>
+        
     </xpath>
 </template>
 

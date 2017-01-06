@@ -14,8 +14,10 @@ $(document).ready(function () {
             $tr = $(this).parent().parent().parent();
             var virtual_available = parseInt($tr.find('[name="virtual_available"]').text());
             var enough = quantity <= virtual_available;
-            $tr.toggleClass('warning', !enough);
-            if (!enough)
+            
+            var type = $tr.find('[name="product_type"]').text().replace(/\W/g, '')
+            $tr.toggleClass('warning', (!enough && type == 'product'));
+            if (!enough & type == 'product')
                 available = false;
         });
         $('a[href$="/shop/checkout"]').toggleClass('disabled', !available);

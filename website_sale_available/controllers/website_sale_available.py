@@ -20,7 +20,7 @@ class Controller(website_sale):
 
         if not all([
                 line.product_uom_qty <= line.product_id.virtual_available
-                for line in order.order_line if not line.is_delivery
+                for line in order.order_line if not line.is_delivery and line.product_id.type == 'product'
         ]):
             return request.redirect("/shop/cart")
         
