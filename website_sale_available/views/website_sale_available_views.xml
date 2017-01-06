@@ -11,11 +11,11 @@
 <!-- priority 99 for compatibility with sale options, first load sale options view and then this one -->
 <template id="cart" inherit_id="website_sale.cart_lines" priority="99">
     <xpath expr="//table[@id='cart_products']//thead/tr" position="inside">
-        <th  width="60">Available</th>
+        <th  width="60" style="display:none">Available</th>
     </xpath>
 
     <xpath expr="//t[@t-as='line']/tr" position="inside">
-        <td  class="text-right" name="virtual_available">
+        <td  class="text-right" name="virtual_available" style="display:none">
             <t t-esc="line.product_id.virtual_available"/>
             
         </td>
